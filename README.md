@@ -1,5 +1,5 @@
 # PEC-1
-Hand made 8bitCPU
+Hand made 8bitCPU, Plototype Experimental Computer No.1
 
 ## Picture
 動いている様子．下記のSample Codeを動かしています．
