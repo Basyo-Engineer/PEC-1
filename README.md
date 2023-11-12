@@ -6,6 +6,10 @@ Hand made 8bitCPU, Prototype Experimental Computer No.1
 
 ![F-tropnacAAZ7CA](https://github.com/Basyo-Engineer/PEC-1/assets/142486631/ae064df1-a218-46eb-bad8-a73986ee0c59)
 
+## CPU Architecture
+
+![CPU Architecture drawio](https://github.com/Basyo-Engineer/PEC-1/assets/142486631/6508beb6-8189-4beb-a48d-03fcdbe204c9)
+
 ## Command List
 PEC-1で使用可能なコマンド一覧です．
 
