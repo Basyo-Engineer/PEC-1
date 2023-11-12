@@ -1,7 +1,7 @@
 # PEC-1
 Hand made 8bitCPU
 
-## Picutre
+## Picuture
 動いている様子．下記のSample Codeを動かしています．
 
 ![F-tropnacAAZ7CA](https://github.com/Basyo-Engineer/PEC-1/assets/142486631/ae064df1-a218-46eb-bad8-a73986ee0c59)
