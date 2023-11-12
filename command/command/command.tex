@@ -1,0 +1,116 @@
+\documentclass[lualatex,js=standard,hiresbb,openany]{bxjsarticle}
+\usepackage{luatexja}
+\usepackage{geometry}
+\geometry{margin=5mm}
+
+%数式
+\usepackage{amsmath,amsfonts}
+\usepackage{bm}
+\usepackage{siunitx}
+\usepackage{ulem}
+
+%画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{color}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{comment}
+
+%枠付き文章
+\usepackage{ascmac}
+
+%章=chapter, 節=section, 小節=subseciton, 小小節=subsubsection
+\begin{document}
+
+
+\begin{table}[H]
+ \begin{center}
+  \begin{tabular}{cll}\hline
+    命令種類 & ニーモニック & 説明 \\ 
+    \hline \hline
+    転送     & MOV  $\mathrm{GRx}$, $\mathrm{GRy}$        & $\mathrm{GRx}$ <- $\mathrm{GRy}$ \\ 
+    転送     & MOV  $\mathrm{GRx}$, Im                    & $\mathrm{GRx}$ <- (Im)\\
+    算術     & ADD  $\mathrm{GRx}$, $\mathrm{GRy}$        & $\mathrm{GRx}$ <- $\mathrm{GRx}$ + $\mathrm{GRy}$ \\ 
+    算術     & ADD  $\mathrm{GRx}$, Im                    & $\mathrm{GRx}$ <- $\mathrm{GRx}$ + (Im) \\
+    算術     & SUB  $\mathrm{GRx}$, $\mathrm{GRy}$        & $\mathrm{GRx}$ <- $\mathrm{GRx}$ - $\mathrm{GRy}$\\ 
+    算術     & SUB  $\mathrm{GRx}$, Im                    & $\mathrm{GRx}$ <- $\mathrm{GRx}$ - (Im) \\
+    論理     & NAND $\mathrm{GRx}$, $\mathrm{GRy}$        & $\mathrm{GRx}$ <- $\overline{\mathrm{GRx \cdot GRy}}$ \\
+    論理     & NAND $\mathrm{GRx}$, Im                    & $\mathrm{GRx}$ <- $\overline{\mathrm{GRx \cdot Im}}$ \\
+    条件分岐 & JMP  Im                                    & jump (Im) \\
+    条件分岐 & JNO  Im                                    & jump (Im) if OverFlow Flag = 0 \\
+    条件分岐 & JZE  Im                                    & jump (Im) if Zero Flag = 1 \\
+    条件分岐 & JMI  Im                                    & jump (Im) if Sign Flag = 1\\
+    条件分岐 & JPL  Im                                    & jump (Im) if Sign Flag = 0 \& Zero Flag = 0 \\
+    その他   & IN   $\mathrm{GRx}$                        & $\mathrm{GRx}$ <- Input \\
+    その他   & OUT  $\mathrm{GRx}$                        & $\mathrm{GRx}$ -> Output \\
+    その他   & NOP                                        & なにもしない \\
+     \hline
+  \end{tabular}
+  \label{tab:}
+ \end{center}
+\end{table}
+
+\begin{table}[H]
+ \begin{center}
+  \begin{tabular}{lcccc}\hline
+    命令                                & オペコード & オペランド1 & オペランド2 & 即値\\
+    \hline \hline 
+    MOV  $\mathrm{GRx}$, $\mathrm{GRy}$ &   0010    &   xx   &   yy   &    000000 \\
+    MOV  $\mathrm{GRx}$, Im             &   0011    &   xx   &   00   &    [imdt] \\
+    ADD  $\mathrm{GRx}$, $\mathrm{GRy}$ &   0100    &   xx   &   yy   &    000000 \\
+    ADD  $\mathrm{GRx}$, Im             &   0101    &   xx   &   00   &    [imdt] \\
+    SUB  $\mathrm{GRx}$, $\mathrm{GRy}$ &   0110    &   xx   &   yy   &    000000 \\
+    SUB  $\mathrm{GRx}$, Im             &   0111    &   xx   &   00   &    [imdt] \\
+    NAND $\mathrm{GRx}$, $\mathrm{GRy}$ &   1000    &   xx   &   yy   &    000000 \\
+    NAND $\mathrm{GRx}$, Im             &   1001    &   xx   &   00   &    [imdt] \\
+    JMP  Im                             &   0001    &   00   &   00   &    [imdt] \\
+    JNO  Im                             &   1011    &   00   &   00   &    [imdt] \\
+    JZE  Im                             &   1010    &   00   &   00   &    [imdt] \\
+    JMI  Im                             &   1100    &   00   &   00   &    [imdt] \\
+    JPL  Im                             &   1101    &   00   &   00   &    [imdt] \\
+    IN   $\mathrm{GRx}$                 &   1110    &   xx   &   00   &    000000 \\
+    OUT  $\mathrm{GRx}$                 &   1111    &   xx   &   00   &    000000 \\
+    NOP                                 &   0000    &   00   &   00   &    000000 \\  
+    \hline                          
+  \end{tabular}
+  \label{tab:}
+ \end{center}
+\end{table}
+
+\begin{comment}
+0:gr0, 1:gr1, 2:gr2, 3:gr3, 4:inp, 5:[imdt], 6:000000
+
+\begin{table}[H]
+ \begin{center}
+  \caption{null}
+  \begin{tabular}{|cccc|cc|cc|ccc|cccccccc|}\hline
+    \multicolumn{4}{|c|}{opecord} & \multicolumn{4}{c|}{operand} & \multicolumn{3}{c|}{flag} &  \multicolumn{8}{c|}{出力}\\ \hline 
+    op3 & op2 & op1 & op0 & ora1 & ora0 & orb1 & orb0 & ZF & OF & SF & sela & selb & ld0 & ld1 & ld2 & ld3 & ldo & ldp c \\ \hline
+    0   & 0   & 1   & 0   & x    & x    & y    & y    &  X &  X &  X &   yy &  110 &   x  &  x &   x &   x &  1  &   1  \\  \hline
+    0   & 0   & 1   & 1   & x    & x    & 0    & 0    &  X &  X &  X &  101 &  110 &   x  &  x &   x &   x &  1  &   1  \\ \hline
+    0   & 1   & 0   & 0   & x    & x    & y    & y    &  X &  X &  X &   xx &   yy &   x  &  x &   x &   x &  1  &   1  \\ \hline
+    0   & 1   & 0   & 1   & x    & x    & 0    & 0    &  X &  X &  X &   xx &  101 &   x  &  x &   x &   x &  1  &   1  \\ \hline
+    0   & 1   & 1   & 0   & x    & x    & y    & y    &  X &  X &  X &   xx &   yy &   x  &  x &   x &   x &  1  &   1  \\ \hline
+    0   & 1   & 1   & 1   & x    & x    & 0    & 0    &  X &  X &  X &   xx &  101 &   x  &  x &   x &   x &  1  &   1  \\ \hline
+    1   & 0   & 0   & 0   & x    & x    & y    & y    &  X &  X &  X &   xx &   yy &   x  &  x &   x &   x &  1  &   1  \\ \hline
+    1   & 0   & 0   & 1   & x    & x    & 0    & 0    &  X &  X &  X &   xx &  101 &   x  &  x &   x &   x &  1  &   1  \\ \hline
+    0   & 0   & 0   & 1   & 0    & 0    & 0    & 0    &  X &  X &  X &  101 &  110 &   1  &  1 &   1 &   1 &  1  &   0  \\ \hline
+    1   & 0   & 1   & 1   & 0    & 0    & 0    & 0    &  X &  0 &  X &  101 &  110 &   1  &  1 &   1 &   1 &  1  &   0  \\ \hline
+    1   & 0   & 1   & 0   & 0    & 0    & 0    & 0    &  1 &  X &  X &  101 &  110 &   1  &  1 &   1 &   1 &  1  &   0  \\ \hline
+    1   & 1   & 0   & 0   & 0    & 0    & 0    & 0    &  X &  X &  1 &  101 &  110 &   1  &  1 &   1 &   1 &  1  &   0  \\ \hline
+    1   & 1   & 0   & 1   & 0    & 0    & 0    & 0    &  0 &  X &  0 &  101 &  110 &   1  &  1 &   1 &   1 &  1  &   0  \\ \hline
+    1   & 1   & 1   & 0   & x    & x    & 0    & 0    &  X &  X &  X &  100 &  110 &   x  &  x &   x &   x &  1  &   1  \\ \hline
+    1   & 1   & 1   & 1   & x    & x    & 0    & 0    &  X &  X &  X &   xx &  110 &   1  &  1 &   1 &   1 &  0  &   1  \\ \hline
+    0   & 0   & 0   & 0   & 0    & 0    & 0    & 0    &  X &  X &  X &   00 &   00 &   1  &  1 &   1 &   1 &  1  &   1  \\ \hline
+  \end{tabular}
+  \label{tab:}
+ \end{center}
+\end{table}
+
+
+\end{comment}
+
+
+
+\end{document}

@@ -1,0 +1,115 @@
+\documentclass[lualatex,js=standard,hiresbb,openany]{bxjsarticle}
+\usepackage{luatexja}
+\usepackage{geometry}
+\geometry{margin=17mm}
+
+%数式
+\usepackage{amsmath,amsfonts}
+\usepackage{bm}
+\usepackage{siunitx}
+\usepackage{ulem}
+\usepackage{mathtools}
+
+%画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{color}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{caption}
+
+%枠付き文章
+\usepackage{ascmac}
+\usepackage{comment}
+\usepackage{url}
+
+
+%松尾先生用
+\begin{comment}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+   \lhead{情報工学実験　第4章　デコーダおよび数字表示回路に関する実験}
+   \chead{\empty} %ヘッダ中央
+   \rhead{\empty} %ヘッダ右．コンパイルした日付を表示
+   \lfoot{\empty} %フッタ左
+   \cfoot{\thepage} %フッタ中央．ページ番号を表示
+   \rfoot{\empty} %フッタ右
+   \renewcommand{\headrulewidth}{0pt}
+
+\end{comment}
+\begin{document}
+
+
+\center{掛け算プログラム(3 $\times$ 10と 4 $\times$ 3 を計算して，両結果を減算)}
+
+\begin{table}[H]
+  \begin{center}
+   \begin{tabular}{lcccc}\hline
+      アドレス & ニーモニック & マシンコード & コメント\\
+      \hline \hline
+      0 & MOV GR2, 0    & 0011 10 00 000000 & レジスタ2に0を代入\\
+      1 & MOV GR0, 10   & 0011 00 00 001010 & レジスタ0に10を代入\\
+      2 & SUB GR0, 0    & 0111 00 00 000000 & レジスタ0から0を減算\\
+      3 & JZE at 7      & 1010 00 00 000010 & 前の計算結果でZero Flag = 1なら\\ &&&当該アドレスにジャンプ\\
+      4 & ADD GR2, 3    & 0101 10 00 000011 & レジスタ2に3を加算\\
+      5 & SUB GR0, 1    & 0111 00 00 000001 & レジスタ0から1を減算\\
+      6 & JMP at 2      & 0001 00 00 000010 & 当該アドレスに強制ジャンプ\\
+      7 & MOV GR3, 0    & 0011 11 00 000000 & レジスタ3に0を代入\\
+      8 & MOV GR0, 3    & 0011 00 00 000011 & レジスタ0に3を代入\\
+      9 & SUB GR0, 0    & 0111 00 00 000000 & レジスタ0から0を減算\\
+     10 & JZE at 14     & 1010 00 00 001110 & 前の計算結果でZero Flag = 1なら\\ &&&当該アドレスにジャンプ\\
+     11 & ADD GR3, 4    & 0101 11 00 000100 & レジスタ3に4を加算\\
+     12 & SUB GR0, 1    & 0111 00 00 000001 & レジスタ0から1を減算\\
+     13 & JMP at 9      & 0001 00 00 001001 & 当該アドレスに強制ジャンプ\\
+     14 & SUB GR2, GR3  & 0110 10 11 000000 & GR2とGR3を減算 \\
+     15 & MOV GR1, GR2  & 0010 01 10 000000 & GR1にGR2の値をコピー\\
+     16 & OUT GR1       & 1111 01 00 000000 & 出力レジスタにGR1の値を出力\\
+     17 & MOV GR0, 0    & 0011 00 00 000000 & レジスタ0に0を代入\\
+     18 & MOV GR1, 0    & 0011 01 00 000000 & レジスタ1に0を代入\\
+     19 & MOV GR2, 0    & 0011 10 00 000000 & レジスタ2に0を代入\\
+     20 & MOV GR3, 0    & 0011 11 00 000000 & レジスタ3に0を代入\\
+     21 & OUT GR0       & 1111 00 00 000000 & 出力レジスタにGR0の値を出力\\
+     22 & JMP at 0      & 0001 00 00 000000 & 当該アドレスに強制ジャンプ\\
+   
+
+     
+     \hline                          
+   \end{tabular}
+   \label{tab:}
+  \end{center}
+ \end{table}
+ \newpage
+
+ \center{符号付6bit 2進数対応表}
+ \begin{table}[H]
+  \begin{center}
+   \begin{tabular}{|c|c|c|c|c|c|c|c|}\hline
+      10進数 & 2進数 & & & 10進数 & 2進数 & & \\
+      \hline
+      0      & 000000 &  16 & 010000 0  &   -1      & 111111 &  -17 & 101111 \\
+      1      & 000001 &  17 & 010001    &   -2      & 111110 &  -18 & 101110 \\     
+      2      & 000010 &  18 & 010010    &   -3      & 111101 &  -19 & 101101 \\   
+      3      & 000011 &  19 & 010011    &   -4      & 111100 &  -20 & 101100 \\   
+      4      & 000100 &  20 & 010100    &   -5      & 111011 &  -21 & 101011 \\   
+      5      & 000101 &  21 & 010101    &   -6      & 111010 &  -22 & 101010 \\   
+      6      & 000110 &  22 & 010110    &   -7      & 111001 &  -23 & 101001 \\   
+      7      & 000111 &  23 & 010111    &   -8      & 111000 &  -24 & 101000 \\   
+      8      & 001000 &  24 & 011000    &   -9      & 110111 &  -25 & 100111 \\   
+      9      & 001001 &  25 & 011001    &  -10      & 110110 &  -26 & 100110 \\   
+     10      & 001010 &  26 & 011010    &  -11      & 110101 &  -27 & 100101 \\   
+     11      & 001011 &  27 & 011011    &  -12      & 110100 &  -28 & 100100 \\   
+     12      & 001100 &  28 & 011100    &  -13      & 110011 &  -29 & 100011 \\   
+     13      & 001101 &  29 & 011101    &  -14      & 110010 &  -30 & 100010 \\   
+     14      & 001110 &  30 & 011110    &  -15      & 110001 &  -31 & 100001 \\   
+     15      & 001111 &  31 & 011111    &  -16      & 110000 &  -32 & 100000 \\   
+     \hline
+   \end{tabular}
+   \label{tab:}
+  \end{center}
+ \end{table}
+
+ 
+
+\end{document}
+
+
+

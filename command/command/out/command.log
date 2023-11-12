@@ -1,0 +1,51 @@
+This is e-pTeX, Version 3.141592653-p4.1.0-230214-2.6 (utf8.sjis) (TeX Live 2023) (preloaded format=platex 2023.4.25)  4 NOV 2023 10:15
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**c:/Users/sakan/OneDrive/ドキュメント/8bitCPU/command/command.tex
+(c:/Users/sakan/OneDrive/ドキュメント/8bitCPU/command/command.tex
+pLaTeX2e <2023-02-14>+1 (based on LaTeX2e <2022-11-01> patch level 1)
+L3 programming layer <2023-04-20> (c:/texlive/2023/texmf-dist/tex/latex/bxjscls/bxjsarticle.cls
+Document Class: bxjsarticle 2022/04/10 v2.7a BXJS document classes
+(c:/texlive/2023/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count184
+\calc@Bcount=\count185
+\calc@Adimen=\dimen156
+\calc@Bdimen=\dimen157
+\calc@Askip=\skip48
+\calc@Bskip=\skip49
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count186
+\calc@Cskip=\skip50
+) (c:/texlive/2023/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (c:/texlive/2023/texmf-dist/tex/latex/bxjscls/bxjscompat.sty
+Package: bxjscompat 2022/04/10 v2.7a BXJS document classes
+) (c:/texlive/2023/texmf-dist/tex/generic/iftex/ifpdf.sty
+Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
+(c:/texlive/2023/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+
+c:/texlive/2023/texmf-dist/tex/latex/bxjscls/bxjsarticle.cls:725: Class bxjsarticle Error: Option 'lualatex' used on wrong engine.
+
+See the bxjsarticle class documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.725 ...js@engine@opt' used on wrong engine}\@ehc
+                                                   
+Here is how much of TeX's memory you used:
+ 717 strings out of 476669
+ 12446 string characters out of 5807739
+ 1842889 words of memory out of 5000000
+ 21267 multiletter control sequences out of 15000+600000
+ 516158 words of font info for 49 fonts, out of 8000000 for 9000
+ 929 hyphenation exceptions out of 8191
+ 55i,0n,62p,222b,18s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+No pages of output.

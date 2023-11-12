@@ -1,0 +1,104 @@
+
+(rules PCB data
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 10)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.0)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.0)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clearance 200.2)
+    (clearance 125.0 (type smd_to_turn_gap))
+    (clearance 50.0 (type smd))
+    (clearance 200.2 (type "kicad_default"))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    +5V GND "Net-(D1-K)" "Net-(D1-A)" "Net-(D2-K)" "Net-(D2-A)" "Net-(D3-K)" "Net-(D3-A)"
+    "Net-(D4-K)" "Net-(D4-A)" "Net-(D5-K)" "Net-(D5-A)" "Net-(D6-K)" "Net-(D6-A)" "Net-(D7-K)" R35
+    "Net-(D8-K)" R34 "Net-(D9-K)" R33 "Net-(D10-K)" R32 "Net-(D11-K)" R31
+    "Net-(D12-K)" R30 "Net-(D13-K)" R25 "Net-(D14-K)" R24 "Net-(D15-K)" R23
+    "Net-(D16-K)" R22 "Net-(D17-K)" R21 "Net-(D18-K)" R20 "Net-(D19-K)" R15
+    "Net-(D20-K)" R14 "Net-(D21-K)" R13 "Net-(D22-K)" R12 "Net-(D23-K)" R11
+    "Net-(D24-K)" R10 "Net-(D25-K)" R05 "Net-(D26-K)" R04 "Net-(D27-K)" R03
+    "Net-(D28-K)" R02 "Net-(D29-K)" R01 "Net-(D30-K)" R00 "Net-(D31-K)" pc5
+    "Net-(D32-K)" pc4 "Net-(D33-K)" pc3 "Net-(D34-K)" pc2 "Net-(D35-K)" pc1
+    "Net-(D36-K)" pc0 LD0 "Net-(D37-A)" LD1 "Net-(D38-A)" LD2 "Net-(D39-A)"
+    LD3 "Net-(D40-A)" LDo "Net-(D41-A)" LDpc "Net-(D42-A)" "Net-(D43-K)" sela2
+    "Net-(D44-K)" sela1 "Net-(D45-K)" sela0 "Net-(D46-K)" selb2 "Net-(D47-K)" selb1
+    "Net-(D48-K)" selb0 Y0 Y1 Y2 Y3 Y4 Y5
+    Im0 Im1 Im2 Im3 Im4 Im5 CLR CLK
+    "unconnected-(J1-Pin_29-Pad29)" "unconnected-(J1-Pin_30-Pad30)" "unconnected-(J1-Pin_31-Pad31)" "unconnected-(J1-Pin_32-Pad32)" "unconnected-(J1-Pin_33-Pad33)" "unconnected-(J1-Pin_34-Pad34)" A0 A1
+    A2 A3 A4 A5 B0 B1 B2 B3
+    B4 B5 "unconnected-(J2-Pin_19-Pad19)" "unconnected-(J2-Pin_20-Pad20)" "unconnected-(J2-Pin_21-Pad21)" "unconnected-(J2-Pin_22-Pad22)" "unconnected-(J2-Pin_23-Pad23)" "unconnected-(J2-Pin_24-Pad24)"
+    "unconnected-(J2-Pin_25-Pad25)" "unconnected-(J2-Pin_26-Pad26)" "unconnected-(J2-Pin_27-Pad27)" "unconnected-(J2-Pin_28-Pad28)" "unconnected-(J2-Pin_29-Pad29)" "unconnected-(J2-Pin_30-Pad30)" "unconnected-(J2-Pin_31-Pad31)" "unconnected-(J2-Pin_32-Pad32)"
+    "unconnected-(J2-Pin_33-Pad33)" "unconnected-(J2-Pin_34-Pad34)" Ip5 Ip4 Ip3 Ip2 Ip1 Ip0
+    "unconnected-(U1A-CO-Pad15)" "unconnected-(U2A-P2-Pad5)" "unconnected-(U2A-P3-Pad6)" "unconnected-(U2A-Q3-Pad11)" "unconnected-(U2A-Q2-Pad12)" "unconnected-(U2A-CO-Pad15)" "unconnected-(U3A-CO-Pad15)" "unconnected-(U4A-P2-Pad5)"
+    "unconnected-(U4A-P3-Pad6)" "unconnected-(U4A-Q3-Pad11)" "unconnected-(U4A-Q2-Pad12)" "unconnected-(U4A-CO-Pad15)" "unconnected-(U5A-CO-Pad15)" "unconnected-(U6A-P2-Pad5)" "unconnected-(U6A-P3-Pad6)" "unconnected-(U6A-Q3-Pad11)"
+    "unconnected-(U6A-Q2-Pad12)" "unconnected-(U6A-CO-Pad15)" "unconnected-(U7A-CO-Pad15)" "unconnected-(U8A-P2-Pad5)" "unconnected-(U8A-P3-Pad6)" "unconnected-(U8A-Q3-Pad11)" "unconnected-(U8A-Q2-Pad12)" "unconnected-(U8A-CO-Pad15)"
+    "unconnected-(U9A-CO-Pad15)" "unconnected-(U10A-P2-Pad5)" "unconnected-(U10A-P3-Pad6)" "unconnected-(U10A-Q3-Pad11)" "unconnected-(U10A-Q2-Pad12)" "unconnected-(U10A-CO-Pad15)" "Net-(U11A-CO)" "Net-(U12A-~{CLR})"
+    "unconnected-(U12A-P2-Pad5)" "unconnected-(U12A-P3-Pad6)" "unconnected-(U12A-Q3-Pad11)" "unconnected-(U12A-Q2-Pad12)" "unconnected-(U12A-CO-Pad15)" "unconnected-(U13A-~{Y}-Pad6)" "unconnected-(U13A-I7-Pad12)" "unconnected-(U14A-~{Y}-Pad6)"
+    "unconnected-(U14A-I7-Pad12)" "unconnected-(U15A-~{Y}-Pad6)" "unconnected-(U15A-I7-Pad12)" "unconnected-(U16A-~{Y}-Pad6)" "unconnected-(U16A-I7-Pad12)" "unconnected-(U17A-~{Y}-Pad6)" "unconnected-(U17A-I7-Pad12)" "unconnected-(U18A-~{Y}-Pad6)"
+    "unconnected-(U18A-I7-Pad12)" "unconnected-(U19A-~{Y}-Pad6)" "unconnected-(U19A-I7-Pad12)" "unconnected-(U20A-~{Y}-Pad6)" "unconnected-(U20A-I7-Pad12)" "unconnected-(U21A-~{Y}-Pad6)" "unconnected-(U21A-I7-Pad12)" "unconnected-(U22A-~{Y}-Pad6)"
+    "unconnected-(U22A-I7-Pad12)" "unconnected-(U23A-~{Y}-Pad6)" "unconnected-(U23A-I7-Pad12)" "unconnected-(U24A-~{Y}-Pad6)" "unconnected-(U24A-I7-Pad12)" "Net-(U25-Pad2)" "unconnected-(U25-Pad6)" "unconnected-(U25-Pad8)"
+    "unconnected-(U25-Pad11)" "unconnected-(U26-Pad4)" "unconnected-(U26-Pad6)" "unconnected-(U26-Pad8)" "unconnected-(U26-Pad10)" "unconnected-(U26-Pad12)"
+    (clearance_class "kicad_default")
+    (via_rule "kicad_default")
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)

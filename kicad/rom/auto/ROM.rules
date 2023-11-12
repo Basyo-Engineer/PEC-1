@@ -1,0 +1,119 @@
+
+(rules PCB ROM
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 6833)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.0)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.0)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clearance 200.2)
+    (clearance 125.0 (type smd_to_turn_gap))
+    (clearance 50.0 (type smd))
+    (clearance 200.2 (type "kicad_default"))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    +5V GND "Net-(D1-K)" "Net-(D1-A)" "Net-(D2-A)" "Net-(D3-A)" "Net-(D4-A)" "Net-(D5-A)"
+    "Net-(D6-A)" "Net-(D7-A)" "Net-(D8-A)" "Net-(D9-A)" "Net-(D10-A)" "Net-(D11-A)" "Net-(D12-A)" "Net-(D13-A)"
+    "Net-(D14-A)" "Net-(D15-A)" "Net-(D16-K)" "Net-(D16-A)" "Net-(D17-A)" "Net-(D18-A)" "Net-(D19-A)" "Net-(D20-A)"
+    "Net-(D21-A)" "Net-(D22-A)" "Net-(D23-A)" "Net-(D24-A)" "Net-(D25-A)" "Net-(D26-A)" "Net-(D27-A)" "Net-(D28-A)"
+    "Net-(D29-A)" "Net-(D30-A)" "Net-(D31-K)" "Net-(D31-A)" "Net-(D32-A)" "Net-(D33-A)" "Net-(D34-A)" "Net-(D35-A)"
+    "Net-(D36-A)" "Net-(D37-A)" "Net-(D38-A)" "Net-(D39-A)" "Net-(D40-A)" "Net-(D41-A)" "Net-(D42-A)" "Net-(D43-A)"
+    "Net-(D44-A)" "Net-(D45-A)" "Net-(D47-K)" "Net-(D47-A)" "Net-(D49-A)" "Net-(D51-A)" "Net-(D53-A)" "Net-(D55-A)"
+    "Net-(D57-A)" "Net-(D59-A)" "Net-(D61-A)" "Net-(D63-A)" "Net-(D65-A)" "Net-(D67-A)" "Net-(D69-A)" "Net-(D71-A)"
+    "Net-(D73-A)" "Net-(D75-A)" "Net-(D100-K)" "Net-(D76-A)" "Net-(D101-K)" "Net-(D77-A)" "Net-(D78-A)" "Net-(D79-A)"
+    "Net-(D80-A)" "Net-(D81-A)" "Net-(D82-A)" "Net-(D83-A)" "Net-(D84-A)" "Net-(D85-A)" "Net-(D86-A)" "Net-(D87-A)"
+    "Net-(D88-A)" "Net-(D89-A)" "Net-(D90-A)" "Net-(D91-A)" "Net-(D92-A)" "Net-(D93-A)" "Net-(D94-A)" "Net-(D95-A)"
+    "Net-(D96-A)" "Net-(D97-A)" "Net-(D98-A)" "Net-(D99-A)" "Net-(D100-A)" "Net-(D101-A)" "Net-(D102-A)" "Net-(D103-A)"
+    "Net-(D104-A)" "Net-(D105-A)" "Net-(D106-K)" "Net-(D106-A)" "Net-(D107-K)" "Net-(D107-A)" "Net-(D108-A)" "Net-(D109-A)"
+    "Net-(D110-A)" "Net-(D111-A)" "Net-(D112-A)" "Net-(D113-A)" "Net-(D114-A)" "Net-(D115-A)" "Net-(D116-A)" "Net-(D117-A)"
+    "Net-(D118-A)" "Net-(D119-A)" "Net-(D120-A)" "Net-(D121-A)" "Net-(D122-A)" "Net-(D123-A)" "Net-(D124-A)" "Net-(D125-A)"
+    "Net-(D126-A)" "Net-(D127-A)" "Net-(D128-A)" "Net-(D129-A)" "Net-(D130-A)" "Net-(D131-A)" "Net-(D132-A)" "Net-(D133-A)"
+    "Net-(D134-A)" "Net-(D135-A)" "Net-(D271-K)" "Net-(D271-A)" "Net-(D272-A)" "Net-(D273-A)" "Net-(D274-A)" "Net-(D275-A)"
+    "Net-(D276-A)" "Net-(D277-A)" "Net-(D278-A)" "Net-(D279-A)" "Net-(D280-A)" "Net-(D281-A)" "Net-(D282-A)" "Net-(D283-A)"
+    "Net-(D284-A)" "Net-(D285-A)" "Net-(D286-K)" "Net-(D286-A)" "Net-(D287-A)" "Net-(D288-A)" "Net-(D289-A)" "Net-(D290-A)"
+    "Net-(D291-A)" "Net-(D292-A)" "Net-(D293-A)" "Net-(D294-A)" "Net-(D295-A)" "Net-(D296-A)" "Net-(D297-A)" "Net-(D298-A)"
+    "Net-(D299-A)" "Net-(D300-A)" "Net-(D301-K)" "Net-(D301-A)" "Net-(D302-A)" "Net-(D303-A)" "Net-(D304-A)" "Net-(D305-A)"
+    "Net-(D306-A)" "Net-(D307-A)" "Net-(D308-A)" "Net-(D309-A)" "Net-(D310-A)" "Net-(D311-A)" "Net-(D312-A)" "Net-(D313-A)"
+    "Net-(D314-A)" "Net-(D315-A)" "Net-(D317-K)" "Net-(D317-A)" "Net-(D319-A)" "Net-(D321-A)" "Net-(D323-A)" "Net-(D325-A)"
+    "Net-(D327-A)" "Net-(D329-A)" "Net-(D331-A)" "Net-(D333-A)" "Net-(D335-A)" "Net-(D337-A)" "Net-(D339-A)" "Net-(D341-A)"
+    "Net-(D343-A)" "Net-(D345-A)" "Net-(D346-K)" "Net-(D346-A)" "Net-(D347-K)" "Net-(D347-A)" "Net-(D348-A)" "Net-(D349-A)"
+    "Net-(D350-A)" "Net-(D351-A)" "Net-(D352-A)" "Net-(D353-A)" "Net-(D354-A)" "Net-(D355-A)" "Net-(D356-A)" "Net-(D357-A)"
+    "Net-(D358-A)" "Net-(D359-A)" "Net-(D360-A)" "Net-(D361-A)" "Net-(D362-A)" "Net-(D363-A)" "Net-(D364-A)" "Net-(D365-A)"
+    "Net-(D366-A)" "Net-(D367-A)" "Net-(D368-A)" "Net-(D369-A)" "Net-(D370-A)" "Net-(D371-A)" "Net-(D372-A)" "Net-(D373-A)"
+    "Net-(D374-A)" "Net-(D375-A)" "Net-(D376-K)" "Net-(D376-A)" "Net-(D377-K)" "Net-(D377-A)" "Net-(D378-A)" "Net-(D379-A)"
+    "Net-(D380-A)" "Net-(D381-A)" "Net-(D382-A)" "Net-(D383-A)" "Net-(D384-A)" "Net-(D385-A)" "Net-(D386-A)" "Net-(D387-A)"
+    "Net-(D388-A)" "Net-(D389-A)" "Net-(D390-A)" "Net-(D391-A)" "Net-(D392-A)" "Net-(D393-A)" "Net-(D394-A)" "Net-(D395-A)"
+    "Net-(D396-A)" "Net-(D397-A)" "Net-(D398-A)" "Net-(D399-A)" "Net-(D400-A)" "Net-(D401-A)" "Net-(D402-A)" "Net-(D403-A)"
+    "Net-(D404-A)" "Net-(D405-A)" oc3 oc2 oc1 oc0 ol3 ol2
+    ol1 ol0 Im5 Im4 Im3 Im2 Im1 Im0
+    "unconnected-(J1-Pin_15-Pad15)" "unconnected-(J1-Pin_16-Pad16)" "unconnected-(J1-Pin_17-Pad17)" "unconnected-(J1-Pin_18-Pad18)" "unconnected-(J1-Pin_19-Pad19)" "unconnected-(J1-Pin_20-Pad20)" "unconnected-(J1-Pin_21-Pad21)" "unconnected-(J1-Pin_22-Pad22)"
+    "unconnected-(J1-Pin_23-Pad23)" "unconnected-(J1-Pin_24-Pad24)" "unconnected-(J1-Pin_25-Pad25)" "unconnected-(J1-Pin_26-Pad26)" "unconnected-(J1-Pin_27-Pad27)" "unconnected-(J1-Pin_28-Pad28)" "unconnected-(J1-Pin_29-Pad29)" "unconnected-(J1-Pin_30-Pad30)"
+    "unconnected-(J1-Pin_31-Pad31)" "unconnected-(J1-Pin_32-Pad32)" "unconnected-(J1-Pin_33-Pad33)" "unconnected-(J1-Pin_34-Pad34)" pc0 pc1 pc2 pc3
+    pc4 "unconnected-(J2-Pin_6-Pad6)" 2oc3 2oc2 2oc1 2oc0 2ol3 2ol2
+    2ol1 2ol0 2Im5 2Im4 2Im3 2Im2 2Im1 2Im0
+    "unconnected-(J2-Pin_23-Pad23)" "unconnected-(J2-Pin_24-Pad24)" "unconnected-(J2-Pin_25-Pad25)" "unconnected-(J2-Pin_26-Pad26)" "unconnected-(J2-Pin_27-Pad27)" "unconnected-(J2-Pin_28-Pad28)" "unconnected-(J2-Pin_29-Pad29)" "unconnected-(J2-Pin_30-Pad30)"
+    "unconnected-(J2-Pin_31-Pad31)" "unconnected-(J2-Pin_32-Pad32)" "unconnected-(J2-Pin_33-Pad33)" "unconnected-(J2-Pin_34-Pad34)" "Net-(U1-E2)" "Net-(U2-E2)" "unconnected-(U4-A6-Pad8)" "unconnected-(U4-A7-Pad9)"
+    "unconnected-(U4-~{Y7}-Pad11)" "unconnected-(U4-~{Y6}-Pad12)" "Net-(U5-Pad1)" "Net-(U5-Pad2)" "Net-(U5-Pad4)" "unconnected-(U5-Pad8)" "unconnected-(U5-Pad11)" "unconnected-(U6-Pad8)"
+    "unconnected-(U6-Pad10)" "unconnected-(U6-Pad12)"
+    (clearance_class "kicad_default")
+    (via_rule "kicad_default")
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)

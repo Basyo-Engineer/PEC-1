@@ -1,0 +1,24 @@
+# Fdb version 4
+["dvipdf"] 0 "out/example.dvi" "out/example.pdf" "out/example" 0 -1
+  "out/example.dvi" 0 -1 0 "latex"
+  (generated)
+  "out/example.pdf"
+  (rewritten before read)
+["latex"] 1699142898 "c:/Users/sakan/OneDrive/ドキュメント/8bitCPU/command/example/example.tex" "out/example.dvi" "example" 1699142899 2
+  "c:/Users/sakan/OneDrive/ドキュメント/8bitCPU/command/example/example.tex" 1699142897 4948 9bfd9fa30675eb792b908d438d3d891c ""
+  "c:/texlive/2023/texmf-dist/tex/generic/iftex/ifpdf.sty" 1682407877 480 5778104efadad304ced77548ca2184b1 ""
+  "c:/texlive/2023/texmf-dist/tex/generic/iftex/iftex.sty" 1682407877 7237 bdd120a32c8fdb4b433cf9ca2e7cd98a ""
+  "c:/texlive/2023/texmf-dist/tex/latex/bxjscls/bxjsarticle.cls" 1682404927 80172 fe0e50253ef57f9eb47b368951e21cef ""
+  "c:/texlive/2023/texmf-dist/tex/latex/bxjscls/bxjscompat.sty" 1682404927 4232 d0d1a5ff6f8c5149bdfe453845b9a40a ""
+  "c:/texlive/2023/texmf-dist/tex/latex/graphics/keyval.sty" 1682406755 2671 7e67d78d9b88c845599a85b2d41f2e39 ""
+  "c:/texlive/2023/texmf-dist/tex/latex/tools/calc.sty" 1682410715 10214 de3e21cfc0eccc98ca7f8dac0ef263d2 ""
+  "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1682404070 40967 d940221f8762fd5848760382d97d1226 ""
+  "c:/texlive/2023/texmf-var/web2c/eptex/platex.fmt" 1682411474 7886372 6cead25a511071996e06d2cb634ff36b ""
+  "c:/texlive/2023/texmf.cnf" 1682411351 713 e69b156964470283e0530f5060668171 ""
+  "example.tex" 1699142897 4948 9bfd9fa30675eb792b908d438d3d891c ""
+  "out/example.aux" 1699101434 34 3985256e7290058c681f74d7a3565a19 "latex"
+  (generated)
+  "out/example.aux"
+  "out/example.dvi"
+  "out/example.log"
+  (rewritten before read)
