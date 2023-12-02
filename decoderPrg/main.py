@@ -266,7 +266,5 @@ while True:
     
     pm.value(alithm[0])
     al.value(alithm[1])
-    
-    time.sleep(1)
-        
+            
         
